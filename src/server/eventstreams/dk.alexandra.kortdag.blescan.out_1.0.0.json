@@ -1,0 +1,28 @@
+{
+  "name": "dk.alexandra.kortdag.blescan.out",
+  "version": "1.0.0",
+  "nickName": "blescanout",
+  "description": "BleScan Output",
+  "payloadData": [
+    {
+      "name": "beacon",
+      "type": "STRING"
+    },
+    {
+      "name": "demoZone",
+      "type": "STRING"
+    },
+    {
+      "name": "count",
+      "type": "LONG"
+    },
+    {
+      "name": "firstTime",
+      "type": "LONG"
+    },
+    {
+      "name": "latestTime",
+      "type": "LONG"
+    }
+  ]
+}

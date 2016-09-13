@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher name="dk.alexandra.almanac.blescan.testpub"
+  statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="dk.alexandra.kortdag.blescan.out" version="1.0.0"/>
+  <mapping customMapping="disable" type="json"/>
+  <to eventAdapterType="mqtt">
+    <property name="clientId">glaptestdsfs</property>
+    <property name="qos">1</property>
+    <property name="topic">/thomas</property>
+    <property name="cleanSession">true</property>
+    <property name="url">tcp://almanac-lab.alexandra.dk:1883</property>
+  </to>
+</eventPublisher>

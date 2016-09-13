@@ -1,0 +1,28 @@
+{
+  "name": "dk.alexandra.kortdag.blescan.in",
+  "version": "1.0.0",
+  "nickName": "BLESCAN",
+  "description": "Kortdag BLE Scanner",
+  "payloadData": [
+    {
+      "name": "sensor",
+      "type": "STRING"
+    },
+    {
+      "name": "beacon",
+      "type": "STRING"
+    },
+    {
+      "name": "time",
+      "type": "LONG"
+    },
+    {
+      "name": "demoZone",
+      "type": "STRING"
+    },
+    {
+      "name": "rssi",
+      "type": "INT"
+    }
+  ]
+}

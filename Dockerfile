@@ -30,6 +30,9 @@ RUN rm -rf kafka*
 # Download MQTT connector: https://docs.wso2.com/display/CEP410/Supporting+Different+Transports
 RUN wget -P /usr/src/wso2cep/repository/components/lib/  http://repo.spring.io/plugins-release/org/eclipse/paho/mqtt-client/0.4.0/mqtt-client-0.4.0.jar
 
+#WORKDIR /usr/src/wso2cep/repository/deployment
+COPY ./src /usr/src/wso2cep/repository/deployment
+
 WORKDIR /usr/src/wso2cep/bin
 
 CMD ["./wso2server.sh"]
