@@ -17,7 +17,11 @@
       "type": "LONG"
     },
     {
-      "name": "demoZone",
+      "name": "sensorZone",
+      "type": "STRING"
+    },
+    {
+      "name": "demoBeaconZone",
       "type": "STRING"
     },
     {

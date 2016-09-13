@@ -1,9 +1,6 @@
 FROM openjdk:7
 MAINTAINER thomas.gilbert@alexandra.dk
 
-EXPOSE 9443
-
-#COPY ./bin /tmp
 WORKDIR /tmp
 
 # Unzip and create wso2cep folder
@@ -13,7 +10,6 @@ RUN rm wso*.zip
 RUN mv /usr/src/wso* /usr/src/wso2cep
 
 # Download kafka connector: https://docs.wso2.com/display/CEP410/Supporting+Different+Transports
-
 RUN curl -o kafka.tgz http://mirrors.dotsrc.org/apache/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz
 RUN tar xvf kafka.tgz
 RUN rm kafka.tgz
@@ -34,5 +30,14 @@ RUN wget -P /usr/src/wso2cep/repository/components/lib/  http://repo.spring.io/p
 COPY ./src /usr/src/wso2cep/repository/deployment
 
 WORKDIR /usr/src/wso2cep/bin
+
+# Port for the webui. Login/password admin/admin
+EXPOSE 9443
+
+# Expose mount points for persistance
+VOLUME ["/usr/src/wso2cep/repository/deployment/server/eventpublishers",\
+        "/usr/src/wso2cep/repository/deployment/server/eventreceivers", \
+        "/usr/src/wso2cep/repository/deployment/server/eventstreams", \
+        "/usr/src/wso2cep/repository/deployment/server/executionplans"]
 
 CMD ["./wso2server.sh"]

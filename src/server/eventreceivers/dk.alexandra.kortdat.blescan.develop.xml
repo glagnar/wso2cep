@@ -23,8 +23,12 @@
             <to name="time" type="long"/>
         </property>
         <property>
-            <from jsonPath="demoZone"/>
-            <to name="demoZone" type="string"/>
+            <from jsonPath="demoBeaconZone"/>
+            <to name="demoBeaconZone" type="string"/>
+        </property>
+        <property>
+            <from jsonPath="sensorZone"/>
+            <to name="sensorZone" type="string"/>
         </property>
         <property>
             <from jsonPath="rssi"/>

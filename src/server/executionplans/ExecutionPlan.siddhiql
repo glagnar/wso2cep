@@ -7,14 +7,14 @@
 /* define streams/tables and write queries here ... */
 
 @Import('dk.alexandra.kortdag.blescan.in:1.0.0')
-define stream inBlescan (sensor string, beacon string, time long, demoZone string, rssi int);
+define stream inBlescan (sensor string, beacon string, time long, sensorZone string, demoBeaconZone string, rssi int);
 
 @Export('dk.alexandra.kortdag.blescan.out:1.0.0')
-define stream outBlescan (beacon string, demoZone string, count long, firstTime long, latestTime long);
+define stream outBlescan (beacon string, sensorZone string, count long, firstTime long, latestTime long, minRSSI int, maxRSSI int);
 
-from inBlescan[rssi > -45]#window.time(2 min)
-select beacon, demoZone, count(*) as count, min(time) as firstTime, max(time) as latestTime
-group by beacon, demoZone
+from inBlescan[rssi > -35]#window.time(2 min)
+select beacon, sensorZone, count(*) as count, min(time) as firstTime, max(time) as latestTime, min(rssi) as minRSSI, max(rssi) as maxRSSI
+group by beacon, sensorZone
 having count > 2
 
 insert into outBlescan
