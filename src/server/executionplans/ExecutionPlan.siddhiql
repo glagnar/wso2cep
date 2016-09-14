@@ -12,7 +12,7 @@ define stream inBlescan (sensor string, beacon string, time long, sensorZone str
 @Export('dk.alexandra.kortdag.blescan.out:1.0.0')
 define stream outBlescan (beacon string, sensorZone string, count long, firstTime long, latestTime long, minRSSI int, maxRSSI int);
 
-from inBlescan[rssi > -35]#window.time(2 min)
+from inBlescan[rssi > -50]#window.time(2 min)
 select beacon, sensorZone, count(*) as count, min(time) as firstTime, max(time) as latestTime, min(rssi) as minRSSI, max(rssi) as maxRSSI
 group by beacon, sensorZone
 having count > 2
