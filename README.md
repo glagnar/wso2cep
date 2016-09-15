@@ -1,8 +1,8 @@
 # IoT Platform CEP
 
 [![Twitter: @thomasbjgilbert](https://img.shields.io/badge/contact-@thomasbjgilbert-blue.svg?style=flat)](https://twitter.com/thomasbjgilbert)
-[![Language: Swift](https://img.shields.io/badge/Container-Docker-red.svg)](https://docker.alexandra.dk/)
-[![License: Mit](https://img.shields.io/badge/license-AGPL-lightgrey.svg?style=flat)](http://opensource.org/licenses/AGPL-3.0)
+[![Language: Swift](https://img.shields.io/badge/Container-Docker-red.svg)](https://build.alexandra.dk/)
+[![License: Mit](https://img.shields.io/badge/license-AGPL-lightgrey.svg)](http://opensource.org/licenses/AGPL-3.0)
 
 ## What is IoT Platform CEP?
 The Alexandra Institutes IoT Platform is a micro-service platform for the Internet of Things. The communication backbone is the [Kafka Message System](http://kafka.apache.org) which all other components use for inter-service communication. This repository is a [Complex Event Processing](https://www.quora.com/How-is-stream-processing-and-complex-event-processing-CEP-different) engine, that can be used in the context of the IoT Platform, or as a standalone component.
