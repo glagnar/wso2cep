@@ -1,7 +1,7 @@
 # IoT Platform CEP
 
 [![Twitter: @thomasbjgilbert](https://img.shields.io/badge/contact-@thomasbjgilbert-blue.svg?style=flat)](https://twitter.com/thomasbjgilbert)
-[![Language: Swift](https://img.shields.io/badge/Container-Docker-red.svg)](https://build.alexandra.dk/)
+[![Language: Dockerized](https://img.shields.io/badge/Container-Docker-red.svg)](https://build.alexandra.dk/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Version:4.2.0-RC2](https://img.shields.io/badge/Version-4.2.0_RC2-yellow.svg)](https://github.com/wso2/product-cep/releases)
 
@@ -29,8 +29,10 @@ The image is maintained by [Thomas Gilbert](https://alexandra.dk/dk/om_os/medarb
 
 ### Run
 There are several ways to run the program:
+- First try, is this even worth my time ?
+  * `docker run --rm -it -p 9443:9443 glagnar/wso2cep`
 - Mount a pre-made folder with example code
-  * `docker run --rm -it -p 9443:9443 -v $PWD/src/server:/usr/src/code --name myCeP glagnar/wso2cep`
+  * `docker run -d -p 9443:9443 -v $PWD/src/server:/usr/src/code glagnar/wso2cep`
 - Mount with individual mount points for each of the four relevant folders
   * eventpublishers
   * eventreceivers
