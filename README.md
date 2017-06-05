@@ -2,7 +2,7 @@
 
 [![Twitter: @thomasbjgilbert](https://img.shields.io/badge/contact-@thomasbjgilbert-blue.svg?style=flat)](https://twitter.com/thomasbjgilbert)
 [![Language: Swift](https://img.shields.io/badge/Container-Docker-red.svg)](https://build.alexandra.dk/)
-[![License: Mit](https://img.shields.io/badge/License-AGPL-lightgrey.svg)](http://opensource.org/licenses/AGPL-3.0)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Version:4.2.0-RC2](https://img.shields.io/badge/Version-4.2.0_RC2-yellow.svg)](https://github.com/wso2/product-cep/releases)
 
 ## What is IoT Platform CEP?
@@ -23,14 +23,14 @@ The image is maintained by [Thomas Gilbert](https://alexandra.dk/dk/om_os/medarb
 ### Build
 1. Install [Docker](https://www.docker.com/products/overview)
 2. In the terminal for example:
-   * `docker build -t docker.alexandra.dk/wso2cep:latest -t docker.alexandra.dk/wso2cep:1.0.0 .`
+   * `docker build -t glagnar/wso2cep:latest -t docker.alexandra.dk/wso2cep:1.0.0 .`
    * `docker build -t glagnar/wso2cep:0.0.1 .`
-3. Upload to either hub.docker.com or your own Nexus `docker push docker.alexandra.dk/wso2cep`
+3. Upload to either hub.docker.com or your own Nexus `docker push yousnamehere/wso2cep`
 
 ### Run
 There are several ways to run the program:
 - Mount a pre-made folder with example code
-  * `docker run --rm -it -p 9443:9443 -v $PWD/src/server:/usr/src/code --name myCeP docker.alexandra.dk/wso2cep`
+  * `docker run --rm -it -p 9443:9443 -v $PWD/src/server:/usr/src/code --name myCeP glagnar/wso2cep`
 - Mount with individual mount points for each of the four relevant folders
   * eventpublishers
   * eventreceivers
@@ -41,8 +41,8 @@ There are several ways to run the program:
 ### Create your own
 To create your own image, containing your own queries you need to create your own [Dockerfile](https://docs.docker.com/engine/reference/builder/). Below is an example, and the source code for it is in [BitBucket](https://bitbucket.alexandra.dk/projects/SWI/repos/kortdagecep).
 ```bash
-FROM docker.alexandra.dk/wso2cep
-MAINTAINER thomas.gilbert@alexandra.dk
+FROM glagnar/wso2cep:latest
+MAINTAINER yourname@yourcompany.dk
 
 COPY ./src/server /usr/src/code
 

@@ -1,4 +1,4 @@
-FROM openjdk:7
+FROM openjdk:8-jre
 MAINTAINER thomas.gilbert@alexandra.dk
 
 WORKDIR /tmp
@@ -49,7 +49,14 @@ RUN ln -s /usr/src/code/eventreceivers /usr/src/wso2cep/repository/deployment/se
 RUN ln -s /usr/src/code/eventstreams /usr/src/wso2cep/repository/deployment/server
 RUN ln -s /usr/src/code/executionplans /usr/src/wso2cep/repository/deployment/server
 
+# Use either this mountpoint
 VOLUME /usr/src/code
+
+# or all of these
+VOLUME /usr/src/code/eventpublishers
+VOLUME /usr/src/code/eventreceivers
+VOLUME /usr/src/code/eventstreams
+VOLUME /usr/src/code/executionplans
 
 # Port for the webui. Login/password admin/admin
 EXPOSE 9443
